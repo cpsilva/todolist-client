@@ -52,7 +52,7 @@ export class AppService {
     async registerWithEmail(email: string, password: string) {
         try {
 
-            return this.httpClient.post(`${environment.BASE_URL}/user/login`, { email, password })
+            return this.httpClient.post(`${environment.BASE_URL}/user/register`, { email, password })
                 .subscribe((result: any) => {
                     localStorage.setItem(
                         'authentication',
@@ -70,7 +70,7 @@ export class AppService {
 
     async loginWithEmail(email: string, password: string) {
         try {
-            return this.httpClient.post(`${environment.BASE_URL}/user/register`, { email, password })
+            return this.httpClient.post(`${environment.BASE_URL}/user/login`, { email, password })
                 .subscribe((result: any) => {
                     localStorage.setItem(
                         'authentication',
@@ -86,7 +86,7 @@ export class AppService {
     }
 
     getAuthStatus = async () => {
-        return new Promise(async (res, rej) => {
+        return new Promise((res, rej) => {
             try {
                 let authentication = localStorage.getItem('authentication');
                 if (authentication) {

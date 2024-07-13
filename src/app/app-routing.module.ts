@@ -1,15 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {MainComponent} from '@modules/main/main.component';
-import {BlankComponent} from '@pages/blank/blank.component';
 import {LoginComponent} from '@modules/login/login.component';
-import {ProfileComponent} from '@pages/profile/profile.component';
 import {RegisterComponent} from '@modules/register/register.component';
-import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 import {AuthGuard} from '@guards/auth.guard';
 import {NonAuthGuard} from '@guards/non-auth.guard';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
+import { HomeComponent } from '@pages/home/home.component';
+import { AboutComponent } from '@pages/about/about.component';
 
 const routes: Routes = [
     {
@@ -19,20 +18,12 @@ const routes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
             {
-                path: 'profile',
-                component: ProfileComponent
-            },
-            {
                 path: 'about',
-                component: BlankComponent
-            },
-            {
-                path: 'sub-menu-1',
-                component: BlankComponent
+                component: AboutComponent
             },
             {
                 path: '',
-                component: DashboardComponent
+                component: HomeComponent
             }
         ]
     },

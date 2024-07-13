@@ -9,12 +9,9 @@ import { LoginComponent } from '@modules/login/login.component';
 import { HeaderComponent } from '@modules/main/header/header.component';
 import { FooterComponent } from '@modules/main/footer/footer.component';
 import { MenuSidebarComponent } from '@modules/main/menu-sidebar/menu-sidebar.component';
-import { BlankComponent } from '@pages/blank/blank.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProfileComponent } from '@pages/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from '@modules/register/register.component';
-import { DashboardComponent } from '@pages/dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 
 import { CommonModule, registerLocaleData } from '@angular/common';
@@ -27,17 +24,13 @@ import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/auth/reducer';
 import { uiReducer } from './store/ui/reducer';
 import { ProfabricComponentsModule } from '@profabric/angular-components';
-import { environment } from 'environments/environment';
-import { ActivityTabComponent } from './pages/profile/activity-tab/activity-tab.component';
-import { TimelineTabComponent } from './pages/profile/timeline-tab/timeline-tab.component';
-import { SettingsTabComponent } from './pages/profile/settings-tab/settings-tab.component';
-import { PostComponent } from './pages/profile/post/post.component';
-import { InfoBoxComponent } from './components/info-box/info-box.component';
-import { SmallBoxComponent } from './components/small-box/small-box.component';
 import { ContentHeaderComponent } from './components/content-header/content-header.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { OverlayLoadingComponent } from './components/overlay-loading/overlay-loading.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from '@pages/home/home.component';
+import { AboutComponent } from '@pages/about/about.component';
+import { TodoInfoBoxModule } from '@components/todo-info-box/todo-info-box.module';
+import { OverlayLoadingModule } from '@components/overlay-loading/overlay-loading.module';
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -49,23 +42,15 @@ registerLocaleData(localeEn, 'en-EN');
         HeaderComponent,
         FooterComponent,
         MenuSidebarComponent,
-        BlankComponent,
-        ProfileComponent,
+        AboutComponent,
         RegisterComponent,
-        DashboardComponent,
+        HomeComponent,
         UserComponent,
         ForgotPasswordComponent,
         RecoverPasswordComponent,
         MenuItemComponent,
-        ActivityTabComponent,
-        TimelineTabComponent,
-        SettingsTabComponent,
-        PostComponent,
-        InfoBoxComponent,
-        SmallBoxComponent,
         ContentHeaderComponent,
         LoadingComponent,
-        OverlayLoadingComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -81,7 +66,9 @@ registerLocaleData(localeEn, 'en-EN');
             positionClass: 'toast-top-right',
             preventDuplicates: true
         }),
-        FontAwesomeModule
+        FontAwesomeModule,
+        TodoInfoBoxModule,
+        OverlayLoadingModule
     ],
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })

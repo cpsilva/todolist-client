@@ -12,11 +12,11 @@ export type VARIANT_TYPES =
     | 'dark';
 
 @Component({
-    selector: 'app-info-box',
-    templateUrl: './info-box.component.html',
-    styleUrls: ['./info-box.component.scss']
+    selector: 'app-todo-info-box',
+    templateUrl: './todo-info-box.component.html',
+    styleUrls: ['./todo-info-box.component.scss']
 })
-export class InfoBoxComponent implements OnInit {
+export class TodoInfoBoxComponent implements OnInit {
     @Input() loading?: 'dark' | boolean;
     @Input() icon?: {
         content: IconDefinition;
