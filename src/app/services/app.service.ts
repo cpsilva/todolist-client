@@ -1,17 +1,17 @@
-
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router'
 import { sleep } from '@/utils/helpers';
+import { User } from '@/shared/models/user.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class AppService {
-    public user: any = null;
+    public user: User | null;
 
     constructor(private router: Router, private toastr: ToastrService, public httpClient: HttpClient) { }
 
@@ -32,7 +32,7 @@ export class AppService {
             await sleep(500);
             const user = await this.getAuthStatus();
             if (user) {
-                this.user = user;
+                this.user = user as User;
             } else {
                 this.logout();
             }
@@ -53,12 +53,12 @@ export class AppService {
         try {
 
             return this.httpClient.post(`${environment.BASE_URL}/user/register`, { email, password })
-                .subscribe((result: any) => {
+                .subscribe((result: User) => {
                     localStorage.setItem(
                         'authentication',
                         JSON.stringify({ profile: { username: email, token: result.token } })
                     );
-                    this.user = result.user;
+                    this.user = result;
                     this.router.navigate(['/']);
                     return result;
                 })
@@ -71,12 +71,12 @@ export class AppService {
     async loginWithEmail(email: string, password: string) {
         try {
             return this.httpClient.post(`${environment.BASE_URL}/user/login`, { email, password })
-                .subscribe((result: any) => {
+                .subscribe((result: User) => {
                     localStorage.setItem(
                         'authentication',
                         JSON.stringify({ profile: { username: email, token: result.token } })
                     );
-                    this.user = result.user;
+                    this.user = result;
                     this.router.navigate(['/']);
                     return result;
                 })

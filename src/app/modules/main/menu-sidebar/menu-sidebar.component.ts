@@ -1,3 +1,4 @@
+import { User } from '@/shared/models/user.model';
 import { AppState } from '@/store/state';
 import { UiState } from '@/store/ui/state';
 import { Component, HostBinding, OnInit } from '@angular/core';
@@ -14,7 +15,7 @@ const BASE_CLASSES = 'main-sidebar elevation-4';
 export class MenuSidebarComponent implements OnInit {
     @HostBinding('class') classes: string = BASE_CLASSES;
     public ui: Observable<UiState>;
-    public user?: any;
+    public user?: User | null;
     public menu = MENU;
 
     constructor(

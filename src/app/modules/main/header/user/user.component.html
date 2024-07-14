@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <pf-dropdown [hideArrow]="true" class="user-menu">
     <div slot="head">
         <a class="nav-link">
@@ -27,8 +29,6 @@
             <p>
                 {{ user?.email }}
                 <small>
-                    <span>Member since </span>
-
                     <span *ngIf="user?.metadata?.creationTime">
                         {{ formatDate(user?.metadata?.creationTime) }}
                     </span>
@@ -37,9 +37,6 @@
         </li>
         <!-- Menu Footer-->
         <li class="user-footer">
-            <a [routerLink]="['/profile']" class="btn btn-default btn-flat">
-                Profile
-            </a>
             <a (click)="logout()" class="btn btn-default btn-flat float-right">
                 Sign out
             </a>
