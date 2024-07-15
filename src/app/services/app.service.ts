@@ -86,7 +86,7 @@ export class AppService {
     }
 
     getAuthStatus = async () => {
-        return new Promise((res, rej) => {
+        return new Promise((res) => {
             try {
                 let authentication = localStorage.getItem('authentication');
                 if (authentication) {

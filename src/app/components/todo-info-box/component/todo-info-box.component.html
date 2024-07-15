@@ -1,22 +1,18 @@
-<span class="info-box-icon" [ngClass]="'bg-' + iconVariant">
-    <fa-icon *ngIf="icon?.content" [icon]="icon.content"></fa-icon>
-</span>
-
-<div class="info-box-content">
-    <span class="info-box-text">{{ title }}</span>
-    <span class="info-box-number">{{ text }}</span>
-    <div *ngIf="progressBar?.level" class="progress">
-        <div
-            class="progress-bar"
-            [ngClass]="'bg-' + progressBarVariant"
-            [ngStyle]="{
-                width: progressBar?.level ? progressBar.level + '%' : '0%'
-            }"
-        ></div>
+<div class="row full-row">
+    <div class="col-lg-10 checkbox-group">
+        <input type="checkbox" id="completeTodo" name="complete" value="true" class="check-large" />
+        <label class="middle-text" for="completeTodo">
+            {{ title }}
+        </label>
     </div>
-    <span *ngIf="progressBar?.description">{{ progressBar.description }}</span>
+    <div class="col-lg-2 button-group">
+        <pf-button [variant]="'secondary'" [size]="'small'" [loading]="false" (click)="editTodo()">
+            Edit
+        </pf-button>
+        <pf-button [variant]="'danger'" [size]="'small'" [loading]="false" (click)="removeTodo()">
+            Remove
+        </pf-button>
+    </div>
 </div>
-<app-overlay-loading
-    *ngIf="loading"
-    [type]="getLoadingPropType()"
-></app-overlay-loading>
+
+<app-overlay-loading *ngIf="loading" [type]="getLoadingPropType()"></app-overlay-loading>

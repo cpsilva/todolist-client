@@ -1,4 +1,3 @@
-import {Action} from '@ngrx/store';
 import * as AuthActions from './actions';
 
 const initialState = {

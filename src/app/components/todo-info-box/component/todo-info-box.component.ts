@@ -17,6 +17,12 @@ export type VARIANT_TYPES =
     styleUrls: ['./todo-info-box.component.scss']
 })
 export class TodoInfoBoxComponent implements OnInit {
+removeTodo() {
+throw new Error('Method not implemented.');
+}
+editTodo() {
+throw new Error('Method not implemented.');
+}
     @Input() loading?: 'dark' | boolean;
     @Input() icon?: {
         content: IconDefinition;

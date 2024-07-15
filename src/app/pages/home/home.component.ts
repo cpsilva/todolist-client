@@ -10,6 +10,9 @@ import { TodosApiService } from '@services/todos.service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+addTodo() {
+throw new Error('Method not implemented.');
+}
 
     public todos: Array<Todo>;
 

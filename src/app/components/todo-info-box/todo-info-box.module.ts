@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TodoInfoBoxComponent } from "./component/todo-info-box.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { OverlayLoadingModule } from "@components/overlay-loading/overlay-loading.module";
+import { ProfabricComponentsModule } from "@profabric/angular-components";
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { OverlayLoadingModule } from "@components/overlay-loading/overlay-loadin
         BrowserAnimationsModule,
         ReactiveFormsModule,
         FontAwesomeModule,
-        OverlayLoadingModule
+        OverlayLoadingModule,
+        ProfabricComponentsModule
     ],
     providers: [
     ],
